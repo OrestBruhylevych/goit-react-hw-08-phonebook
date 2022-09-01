@@ -1,20 +1,23 @@
-import { Box, StyledTitle } from './StyledComponent';
-import { ContactsList } from './ContactsList/ContactsList';
-import { Filter } from './Filter/Filter';
-import { MyForm } from './Form/MyForm';
+import { Routes, Route } from 'react-router-dom';
+
+import ContactsPage from 'pages/ContactsPage';
+import AppBar from './AppBar/AppBar';
+import HomePage from 'pages/HomePage';
+import RegisterPage from 'pages/RegisterPage';
+import LoginPage from 'pages/LoginPage';
 
 export function App() {
   return (
-    <Box as="main" p={4}>
-      <StyledTitle>Phonebook</StyledTitle>
+    <div>
+      <AppBar />
 
-      <MyForm />
-
-      <StyledTitle as="h2">Contacts</StyledTitle>
-
-      <Filter />
-
-      <ContactsList />
-    </Box>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
+        <Route path="*" element={<HomePage />} />
+      </Routes>
+    </div>
   );
 }
