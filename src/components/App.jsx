@@ -5,8 +5,17 @@ import AppBar from './AppBar/AppBar';
 import HomePage from 'pages/HomePage';
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { authOperations } from 'redux/auth';
 
 export function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <div>
       <AppBar />

@@ -2,7 +2,8 @@ import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContacts, getContactsArray } from '../../redux/contacts/slice';
+// import { addContacts, getContactsArray } from '../../redux/contacts/slice';
+import { contactsOperations, contactsSelectors } from 'redux/contacts';
 
 import { StyledForm, ErrorText } from './MyForm.styled';
 
@@ -13,7 +14,7 @@ const validationSchema = Yup.object({
 
 export const MyForm = () => {
   const dispatch = useDispatch();
-  const contactsArray = useSelector(getContactsArray);
+  const contactsArray = useSelector(contactsSelectors.getContactsArray);
 
   const addConntacts = value => {
     const nameLowerCase = value.name.toLowerCase();
@@ -27,7 +28,7 @@ export const MyForm = () => {
       return;
     }
 
-    dispatch(addContacts(value));
+    dispatch(contactsOperations.addContact(value));
   };
 
   return (
