@@ -1,27 +1,18 @@
+import AuthNav from 'components/AuthNav/AuthNav';
+import Navigation from 'components/Navigation/Navigation';
+import { Box } from 'components/StyledComponent';
 import UserMenu from 'components/UserMenu/UserMenu';
-import { Outlet } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-
-const StyledLink = styled(NavLink)`
-  color: black;
-
-  &.active {
-    color: orange;
-  }
-`;
+import { useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth';
 
 export default function AppBar() {
+  const isLoggetIn = useSelector(authSelectors.getIsLoggedIn);
+
   return (
-    <>
-      <nav>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/contacts">Contacts</StyledLink>
-        <StyledLink to="/register">Register</StyledLink>
-        <StyledLink to="/login">Login</StyledLink>
-      </nav>
-      <UserMenu />
-      <Outlet />
-    </>
+    <Box as="header" display="flex" justifyContent="space-around">
+      <Navigation />
+
+      {!isLoggetIn ? <AuthNav /> : <UserMenu />}
+    </Box>
   );
 }

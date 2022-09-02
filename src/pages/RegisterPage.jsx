@@ -1,6 +1,8 @@
 import { StyledForm, ErrorText } from '../components/Form/MyForm.styled';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import authOperations from '../redux/auth/auth-operations';
 
 const validationSchema = Yup.object({
   email: Yup.string().required('Name is required'),
@@ -9,6 +11,8 @@ const validationSchema = Yup.object({
 });
 
 export default function RegisterPage() {
+  const dispatch = useDispatch();
+
   return (
     <div>
       <h1>Register Page</h1>
@@ -17,6 +21,7 @@ export default function RegisterPage() {
         initialValues={{ email: '', password: '', name: '' }}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
+          dispatch(authOperations.register(values));
           resetForm();
         }}
       >
