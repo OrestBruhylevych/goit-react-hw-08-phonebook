@@ -11,7 +11,6 @@ const HomePage = lazy(() => import('pages/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
-// const UploadView = lazy(() => import('./views/UploadView'));
 
 export function App() {
   const dispatch = useDispatch();

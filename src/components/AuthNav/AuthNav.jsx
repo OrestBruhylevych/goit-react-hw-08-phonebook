@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 const StyledLink = styled(NavLink)`
   color: black;
+  text-decoration: none;
+  font-size: 25px;
+  margin-right: 10px;
 
   &.active {
     color: orange;
