@@ -5,12 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { contactsOperations, contactsSelectors } from 'redux/contacts';
 import { useEffect } from 'react';
 
-// import {
-//   removeContacts,
-//   getContactsArray,
-//   getFilter,
-// } from '../../redux/contacts/slice';
-
 export const ContactsList = () => {
   const dispatch = useDispatch();
   const contactsArray = useSelector(contactsSelectors.getContactsArray);

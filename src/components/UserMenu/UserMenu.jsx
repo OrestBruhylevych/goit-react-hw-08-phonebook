@@ -1,9 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
+import { useAuth } from 'hooks';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
-
+  const { user } = useAuth();
+  console.log(user);
   return (
     <div>
       <img
