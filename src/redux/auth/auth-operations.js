@@ -18,6 +18,7 @@ const register = createAsyncThunk('auth/register', async credentials => {
     token.set(data.token);
     return data;
   } catch (error) {
+    window.alert('Something went wrong:(');
     console.log(error);
   }
 });
@@ -28,6 +29,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
     token.set(data.token);
     return data;
   } catch (error) {
+    window.alert('Invalid login or password');
     console.log(error);
   }
 });

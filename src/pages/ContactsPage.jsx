@@ -6,11 +6,10 @@ import { MyForm } from '../components/Form/MyForm';
 export default function ContactsPage() {
   return (
     <Box as="main" p={4}>
-      <StyledTitle>Phonebook</StyledTitle>
+      <StyledTitle>Contacts</StyledTitle>
 
       <MyForm />
 
-      <StyledTitle as="h2">Contacts</StyledTitle>
       <Filter />
       <ContactsList />
     </Box>

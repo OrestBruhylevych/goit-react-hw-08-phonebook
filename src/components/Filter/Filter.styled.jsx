@@ -6,6 +6,7 @@ export const FilterStyled = styled.div`
   justify-content: center;
   align-items: center;
   width: 200px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   label {

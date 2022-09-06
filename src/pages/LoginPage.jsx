@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 
 const validationSchema = Yup.object({
-  email: Yup.string().required('Name is required'),
-  password: Yup.string().required('Number is required'),
+  email: Yup.string().required('Email is required'),
+  password: Yup.string().required('Password is required'),
 });
 
 export default function LoginPage() {
@@ -14,8 +14,6 @@ export default function LoginPage() {
 
   return (
     <div>
-      <h1>Login Page</h1>
-
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={validationSchema}
@@ -33,7 +31,7 @@ export default function LoginPage() {
           />
 
           <label htmlFor="password">Password</label>
-          <Field name="password" required />
+          <Field type="password" name="password" required />
           <ErrorMessage
             name="password"
             render={message => <ErrorText>{message}</ErrorText>}
